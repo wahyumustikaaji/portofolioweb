@@ -1,0 +1,30 @@
+[
+  { 
+    "id": 1, 
+    "title": "Viron Cyber Security", 
+    "description": "Fortifying digital frontiers through bold protection and advanced strategies.",
+    "image": "https://media.istockphoto.com/id/517188688/id/foto/lanskap-gunung.jpg?s=612x612&w=0&k=20&c=vJbqv4UEOXni-tW2RjeubmeZ6y9vsW4vVGKQy2-ZCRk=",
+    "number": "01/04"
+  },
+  { 
+    "id": 2, 
+    "title": "GREENBOX DIGITAL", 
+    "description": "Blending digital simplicity with thoughtful design and distinctive character.",
+    "image": "https://cdn0-production-images-kly.akamaized.net/pkiKogaFaEHiRaJemJsMacfTF4Y=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4087394/original/016463100_1657693473-robert-lukeman-_RBcxo9AU-U-unsplash.jpg",
+    "number": "02/04"
+  },
+  { 
+    "id": 3, 
+    "title": "NEXUS PLATFORM", 
+    "description": "Connecting digital ecosystems through innovative interfaces and seamless experiences.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Pemandangan_Alam.jpg",
+    "number": "03/04"
+  },
+  { 
+    "id": 4, 
+    "title": "AURORA INTERFACE", 
+    "description": "Illuminating user experiences with vibrant design and intuitive navigation systems.",
+    "image": "https://i2.wp.com/blog.tripcetera.com/id/wp-content/uploads/2020/10/Danau-Toba-edited.jpg",
+    "number": "04/04"
+  }
+]
