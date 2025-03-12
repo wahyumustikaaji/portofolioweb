@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import CardWorks from '../../Components/ui/CardWorks/Index';
 import projectsData from '../../data/projects.json';
+import BackgroundLines from '../../Components/Backgrounds/Line/Index';
 
 export default function Home() {
   const [bgColor, setBgColor] = useState('bg-white');
@@ -13,13 +14,36 @@ export default function Home() {
     triggerOnce: false
   });
 
-  // useEffect(() => {
-  //   if (cardInView) {
-  //     setBgColor('bg-black');
-  //   } else {
-  //     setBgColor('bg-white');
-  //   }
-  // }, [cardInView]);
+  const [localTime, setLocalTime] = useState('');
+  const [timeZone, setTimeZone] = useState('');
+
+  // Add this useEffect to update the time every second
+  useEffect(() => {
+    const updateLocalTime = () => {
+      const now = new Date();
+      
+      // Format time as HH:MM
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      setLocalTime(`${hours}:${minutes}`);
+      
+      // Get timezone offset in hours and minutes
+      const offset = -now.getTimezoneOffset();
+      const offsetHours = Math.floor(Math.abs(offset) / 60);
+      const offsetMinutes = Math.abs(offset) % 60;
+      const offsetSign = offset >= 0 ? '+' : '-';
+      setTimeZone(`GMT (${offsetSign}${offsetHours}:${offsetMinutes.toString().padStart(2, '0')})`);
+    };
+    
+    // Update time immediately
+    updateLocalTime();
+    
+    // Then update every second
+    const intervalId = setInterval(updateLocalTime, 1000);
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   const [ref1, inView1] = useInView({ threshold: 0.8, triggerOnce: false });
   const [ref2, inView2] = useInView({ threshold: 0.8, triggerOnce: false });
@@ -42,14 +66,9 @@ export default function Home() {
 
   return (
     <div className={`transition-colors duration-700 ${bgColor} relative`}>
-      {/* Grid background - vertical lines only */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none z-0 flex justify-between">
-        {Array.from({ length: 10 }).map((_, index) => (
-          <div key={`vline-${index}`} className="h-full w-px bg-gray-200"></div>
-        ))}
-      </div>
-      
-      <Navbar inDarkMode={cardInView} />
+      <Navbar/>
+      <BackgroundLines />
+
       <div className="min-h-screen flex flex-col relative z-10">
         {/* First section content */}
         <div className="container mx-auto px-4 flex-grow flex flex-col justify-center items-center">
@@ -89,11 +108,24 @@ export default function Home() {
             <div className="flex flex-col">
               <p className="mb-1 font-merriweather text-sm">Freelancer Availability</p>
               <div className="flex items-center text-sm gap-2">
-              <span class="relative flex size-2">
-                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                <span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex size-2 rounded-full bg-green-500"></span>
               </span>
-                <span className="text-gray-400">Available</span>
+                <span className="text-gray-500">Available</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div 
+            className="absolute bottom-6 right-4 lg:right-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex flex-col">
+              <p className="mb-1 font-merriweather text-sm">Location Local Time</p>
+              <div className="flex items-center text-sm gap-2">
+                <span className="text-gray-500">{localTime}, {timeZone}</span>
               </div>
             </div>
           </motion.div>
@@ -117,17 +149,13 @@ export default function Home() {
           
           <motion.p 
             ref={ref2}
-            className='text-center font-merriweather font-light mt-4 sm:mt-2'
+            className='text-center font-merriweather font-light mt-4 sm:mt-2 flex items-center justify-center'
             initial="hidden"
             animate={inView2 ? "visible" : "hidden"}
             variants={fadeUpVariants}
           >
             <span className="text-black font-medium">Website Developer</span>
-            <span className="inline-flex items-center mx-2 bg-blue-500 text-white px-2">
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </span>
+            <img className='size-12 sm:size-14 md:size-16 ml-3' src="/Images/website.png" alt="website logo" />
             <span className="text-gray-400">,</span>
           </motion.p>
           
@@ -231,6 +259,11 @@ export default function Home() {
             </motion.h2>
           </div>
         </div>
+      </div>
+
+      <div className='text-center relative z-10 py-20'>
+        <p className='font-serif text-3xl'>Ready to work together?</p>
+        <a href="mailto:wahyuma123@gmail.com" className='inline-block font-merriweather font-bold text-5xl mt-3 hover:text-gray-600 transition-colors duration-300'>wahyuma123@gmail.com</a>
       </div>
 
       <Footer />

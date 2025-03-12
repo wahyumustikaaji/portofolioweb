@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 
-const CardWorks = ({ projects, inDarkMode = false }) => {
+const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
   const textColor = inDarkMode ? "text-white" : "text-black";
   const subtextColor = inDarkMode ? "text-gray-300" : "text-gray-600";
   const borderColor = inDarkMode ? "border-gray-700" : "border-gray-300";
@@ -10,17 +10,19 @@ const CardWorks = ({ projects, inDarkMode = false }) => {
   return (
     <div className="min-h-screen pb-20 relative z-10">
       <div className="container mx-auto px-4 lg:px-20">
-        <div className='w-full flex items-center justify-between mb-8'>
-          <motion.h2 
-            className={`text-2xl font-nohemi font-semibold ${textColor}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            WORKS
-          </motion.h2>
-          <p className={`font-nohemi text-xl font-medium ${textColor}`}>{projects.length}</p>
-        </div>
+        {!isWorksPage && (
+          <div className='w-full flex items-center justify-between mb-8'>
+            <motion.h2 
+              className={`text-2xl font-nohemi font-semibold ${textColor}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              WORKS
+            </motion.h2>
+            <p className={`font-nohemi text-xl font-medium ${textColor}`}>{projects.length}</p>
+          </div>
+        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-6">
           {projects.map((project, index) => {

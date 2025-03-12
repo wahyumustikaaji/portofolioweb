@@ -1,100 +1,112 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import Navbar from '../../Components/ui/Navbar';
+import CardWorks from '../../Components/ui/CardWorks/Index';
+import projectsData from '../../data/projects.json';
+import { useInView } from 'react-intersection-observer';
+import Footer from '../../Components/ui/Footer/Index';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import BackgroundLines from '../../Components/Backgrounds/Line/Index';
 
 export default function Works() {
-  // Sample project data - in a real app, you might fetch this from an API
-  const works = [
-    {
-      id: 1,
-      title: "E-commerce Website",
-      description: "A fully responsive e-commerce platform with cart functionality",
-      image: "https://placehold.co/600x400",
-      category: "Web Development"
-    },
-    {
-      id: 2,
-      title: "Portfolio Template",
-      description: "A customizable portfolio template for creative professionals",
-      image: "https://placehold.co/600x400",
-      category: "UI/UX Design"
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description: "A productivity app to help teams organize their work",
-      image: "https://placehold.co/600x400",
-      category: "Web Application"
-    },
-    {
-      id: 4,
-      title: "Restaurant Website",
-      description: "A website for a local restaurant with online ordering",
-      image: "https://placehold.co/600x400",
-      category: "Web Development"
-    }
-  ];
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.1,
+    triggerOnce: false
+  });
+  
+  // Add these state variables for the time display
+  const [localTime, setLocalTime] = useState('');
+  const [timeZone, setTimeZone] = useState('');
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
+  // Add this useEffect to update the time every second
+  useEffect(() => {
+    const updateLocalTime = () => {
+      const now = new Date();
+      
+      // Format time as HH:MM
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      setLocalTime(`${hours}:${minutes}`);
+      
+      // Get timezone offset in hours and minutes
+      const offset = -now.getTimezoneOffset();
+      const offsetHours = Math.floor(Math.abs(offset) / 60);
+      const offsetMinutes = Math.abs(offset) % 60;
+      const offsetSign = offset >= 0 ? '+' : '-';
+      setTimeZone(`GMT (${offsetSign}${offsetHours}:${offsetMinutes.toString().padStart(2, '0')})`);
+    };
+    
+    // Update time immediately
+    updateLocalTime();
+    
+    // Then update every second
+    const intervalId = setInterval(updateLocalTime, 1000);
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <div className="min-h-screen">
+    <>
+    <div className="">
       <Navbar />
-      <main className="container mx-auto px-4 pt-24 pb-16">
-        
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
-          Here are some of my recent works. Each project represents a unique challenge
-          and showcases different skills and technologies.
-        </p>
-        
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {works.map((project) => (
-            <motion.div 
-              key={project.id}
-              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-              variants={itemVariants}
+      <BackgroundLines />
+
+      <div className="min-h-screen flex flex-col relative z-10">
+        {/* First section content */}
+        <div className="container mx-auto px-4 flex-grow flex flex-col justify-center items-center">
+          <div className="text-center max-w-6xl">
+            <motion.h1 
+              className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-none tracking-tighter font-semibold"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={`/work/${project.id}`}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <span className="text-sm text-gray-500 mb-2 block">{project.category}</span>
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-700">{project.description}</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </main>
+              WORKS
+            </motion.h1>
+          </div>
+          
+          <motion.div 
+            className="absolute bottom-6 left-4 lg:left-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex flex-col">
+              <p className="mb-1 font-merriweather text-sm">Freelancer Availability</p>
+              <div className="flex items-center text-sm gap-2">
+              <span class="relative flex size-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
+              </span>
+                <span className="text-gray-500">Available</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div 
+            className="absolute bottom-6 right-4 lg:right-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex flex-col">
+              <p className="mb-1 font-merriweather text-sm">Location Local Time</p>
+              <div className="flex items-center text-sm gap-2">
+                <span className="text-gray-500">{localTime}, {timeZone}</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      
+      <div className='pt-20' ref={cardRef}>
+        <CardWorks 
+          projects={projectsData} 
+          isWorksPage={true} 
+        />
+      </div>
     </div>
+
+    <Footer />
+    </>
   );
 }

@@ -1,0 +1,27 @@
+{
+  "journeyItems": [
+    {
+      "period": "2021 - now",
+      "title": "Website and UI/UX designer",
+      "company": "Zaza.in",
+      "responsibilities": [
+        "Building user flows",
+        "Designing in Figma",
+        "Conceptualising web animations",
+        "Collaborating with the Front-end team"
+      ]
+    },
+    {
+      "period": "2018 - 2021",
+      "title": "Teaching assistant & Presentation designer",
+      "company": "Slide.in",
+      "description": "Feeling the need to grow professionally after three years, I pursued web design, which is also my current role. In addition to learning various web design styles and skills, I also studied basic programming languages like HTML, CSS, and JavaScript to better collaborate with the Front-end team."
+    },
+    {
+      "period": "2014 - 2018",
+      "title": "Graduated with an engineering degree",
+      "company": "University of Indonesia Technology",
+      "description": ""
+    }
+  ]
+}

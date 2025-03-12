@@ -1,0 +1,62 @@
+{
+  "clientsByLetter": {
+    "A": [
+      "Arteco",
+      "Aura Club",
+      "APEC Schools"
+    ],
+    "B": [
+      "Bepage",
+      "Bizman Sky"
+    ],
+    "C": [
+      "Customchic"
+    ],
+    "D": [
+      "Dewoo Group",
+      "Dai Phong JSC"
+    ],
+    "F": [
+      "FTA E&C",
+      "First Alliances"
+    ],
+    "G": [
+      "Growell Vietnam"
+    ],
+    "I": [
+      ".NET",
+      "IEC",
+      "ITE I/CMC 2019"
+    ],
+    "M": [
+      "MIBS",
+      "Me Linh Plaza",
+      "M&A Vietnam"
+    ],
+    "N": [
+      "Netco Post",
+      "Ngoc Viet Entertainment"
+    ],
+    "P": [
+      "Phoenix MF Co.,LTD",
+      "Phan Dinh Phung High school"
+    ],
+    "S": [
+      "Savvycom"
+    ],
+    "T": [
+      "Timviec",
+      "Techcombank",
+      "Techmaster",
+      "Tinh Van Group"
+    ],
+    "V": [
+      "Vietinbank",
+      "VAS Track 2019",
+      "Vincom Royal Park"
+    ],
+    "Z": [
+      "Zozo"
+    ]
+  }
+}
