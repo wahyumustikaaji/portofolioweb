@@ -82,7 +82,7 @@ export default function Home() {
               WAYU
             </motion.h1>
             <motion.p 
-              className="text-gray-400 uppercase tracking-wide text-lg sm:text-xl md:text-xl"
+              className="text-[#6E6E73] uppercase tracking-wide text-lg sm:text-xl md:text-xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -156,12 +156,12 @@ export default function Home() {
           >
             <span className="text-black font-medium">Website Developer</span>
             <img className='size-12 sm:size-14 md:size-16 ml-3' src="/Images/website.png" alt="website logo" />
-            <span className="text-gray-400">,</span>
+            <span className="text-[#6E6E73]">,</span>
           </motion.p>
           
           <motion.p 
             ref={ref3}
-            className="text-gray-400 font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
+            className="text-[#6E6E73] font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
             initial="hidden"
             animate={inView3 ? "visible" : "hidden"}
             variants={fadeUpVariants}
@@ -173,7 +173,7 @@ export default function Home() {
           
           <motion.p 
             ref={ref4}
-            className="text-gray-400 font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
+            className="text-[#6E6E73] font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
             initial="hidden"
             animate={inView4 ? "visible" : "hidden"}
             variants={fadeUpVariants}
@@ -185,7 +185,7 @@ export default function Home() {
           
           <motion.p 
             ref={ref5}
-            className="text-gray-400 font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
+            className="text-[#6E6E73] font-merriweather font-light text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-2"
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
             variants={fadeUpVariants}

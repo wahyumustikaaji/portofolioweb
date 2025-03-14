@@ -204,7 +204,7 @@ const Navbar = ({ inDarkMode = false }) => {
                     <Link
                       to={link.path}
                       className={`block w-fit font-nohemi text-5xl font-medium transition-colors ${
-                        location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
+                        location.pathname === link.path ? 'text-white' : 'text-[#6E6E73] hover:text-white'
                       }`}
                       onClick={() => setIsOpen(false)}
                     >

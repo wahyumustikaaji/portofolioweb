@@ -73,7 +73,7 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 order-3 md:order-2 w-full md:w-auto mt-4 md:mt-0">
             <a 
               href="mailto:wahyuma123@gmail.com" 
-              className="text-xs md:text-sm uppercase text-white hover:text-gray-400 transition-colors"
+              className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
             >
               EMAIL
             </a>
@@ -82,7 +82,7 @@ const Footer = () => {
               href="https://twitter.com/wahyumustikaaji" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-xs md:text-sm uppercase text-white hover:text-gray-400 transition-colors"
+              className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
             >
               TWITTER
             </a>
@@ -91,7 +91,7 @@ const Footer = () => {
               href="https://instagram.com/wahyumustikaaji_" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-xs md:text-sm uppercase text-white hover:text-gray-400 transition-colors"
+              className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
             >
               INSTAGRAM
             </a>
@@ -100,14 +100,14 @@ const Footer = () => {
               href="https://www.linkedin.com/in/wahyumustikaaji/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-xs md:text-sm uppercase text-white hover:text-gray-400 transition-colors"
+              className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
             >
               LINKEDIN
             </a>
           </div>
           
           <p className="text-sm text-white order-2 md:order-3">
-            DESIGNED BY <span className="text-gray-400">WAHYU AJI</span>
+            DESIGNED BY <span className="text-[#6E6E73]">WAHYU AJI</span>
           </p>
         </div>
       </div>
