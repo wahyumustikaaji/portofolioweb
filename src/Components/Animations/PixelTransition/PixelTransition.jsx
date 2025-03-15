@@ -1,13 +1,8 @@
-/*
-	Installed from https://reactbits.dev/tailwind/
-*/
-
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 function PixelTransition({
-  firstContent,
-  secondContent,
+  contents = [], // Array of content elements to cycle through
   gridSize = 7,
   pixelColor = "currentColor",
   animationStepDuration = 0.3,
@@ -17,16 +12,18 @@ function PixelTransition({
 }) {
   const containerRef = useRef(null);
   const pixelGridRef = useRef(null);
-  const activeRef = useRef(null);
+  const contentsRef = useRef([]);
   const delayedCallRef = useRef(null);
 
-  const [isActive, setIsActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const isTouchDevice =
-    "ontouchstart" in window ||
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window ||
     navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(pointer: coarse)").matches;
+    window.matchMedia("(pointer: coarse)").matches);
 
+  // Initialize the pixel grid
   useEffect(() => {
     const pixelGridEl = pixelGridRef.current;
     if (!pixelGridEl) return;
@@ -51,12 +48,21 @@ function PixelTransition({
     }
   }, [gridSize, pixelColor]);
 
-  const animatePixels = (activate) => {
-    setIsActive(activate);
+  // Prepare content refs
+  useEffect(() => {
+    contentsRef.current = contentsRef.current.slice(0, contents.length);
+  }, [contents]);
 
+  const animateToNextImage = () => {
+    if (contents.length <= 1) return;
+    
+    const nextIndex = (activeIndex + 1) % contents.length;
+    animateTransition(nextIndex);
+  };
+
+  const animateTransition = (newIndex) => {
     const pixelGridEl = pixelGridRef.current;
-    const activeEl = activeRef.current;
-    if (!pixelGridEl || !activeEl) return;
+    if (!pixelGridEl || contents.length === 0) return;
 
     const pixels = pixelGridEl.querySelectorAll(".pixelated-image-card__pixel");
     if (!pixels.length) return;
@@ -66,8 +72,16 @@ function PixelTransition({
       delayedCallRef.current.kill();
     }
 
-    gsap.set(pixels, { display: "none" });
+    // Hide all content elements except current
+    contentsRef.current.forEach((ref, index) => {
+      if (ref && index !== activeIndex) {
+        ref.style.display = "none";
+      }
+    });
 
+    // First phase: show pixels to hide current content
+    gsap.set(pixels, { display: "none" });
+    
     const totalPixels = pixels.length;
     const staggerDuration = animationStepDuration / totalPixels;
 
@@ -80,11 +94,22 @@ function PixelTransition({
       },
     });
 
+    // After first animation phase, switch content
     delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
-      activeEl.style.display = activate ? "block" : "none";
-      activeEl.style.pointerEvents = activate ? "none" : "";
+      // Hide current content
+      if (contentsRef.current[activeIndex]) {
+        contentsRef.current[activeIndex].style.display = "none";
+      }
+      
+      // Show new content
+      if (contentsRef.current[newIndex]) {
+        contentsRef.current[newIndex].style.display = "block";
+      }
+      
+      setActiveIndex(newIndex);
     });
 
+    // Second phase: hide pixels to reveal new content
     gsap.to(pixels, {
       display: "none",
       duration: 0,
@@ -96,26 +121,16 @@ function PixelTransition({
     });
   };
 
-  const handleMouseEnter = () => {
-    if (!isActive) animatePixels(true);
-  };
-  const handleMouseLeave = () => {
-    if (isActive) animatePixels(false);
-  };
   const handleClick = () => {
-    animatePixels(!isActive);
+    animateToNextImage();
   };
 
   return (
     <div
       ref={containerRef}
-      // Combine your own className with the Tailwind classes for styling
       className={`
         ${className}
         bg-[#222]
-        text-white
-        border-2
-        border-white
         w-full
         h-screen
         max-w-full
@@ -123,21 +138,20 @@ function PixelTransition({
         overflow-hidden
       `}
       style={style}
-      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
-      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
+      onClick={handleClick}
     >
       <div style={{ paddingTop: aspectRatio }} />
 
-      <div className="absolute inset-0 w-full h-full">{firstContent}</div>
-
-      <div
-        ref={activeRef}
-        className="absolute inset-0 w-full h-full z-[2]"
-        style={{ display: "none" }}
-      >
-        {secondContent}
-      </div>
+      {contents.map((content, index) => (
+        <div
+          key={index}
+          ref={(el) => (contentsRef.current[index] = el)}
+          className="absolute inset-0 w-full h-full"
+          style={{ display: index === 0 ? "block" : "none" }}
+        >
+          {content}
+        </div>
+      ))}
 
       <div
         ref={pixelGridRef}

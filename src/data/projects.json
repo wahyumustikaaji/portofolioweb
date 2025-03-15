@@ -1,30 +1,74 @@
 [
-  { 
-    "id": 1, 
-    "title": "Viron Cyber Security", 
-    "description": "Fortifying digital frontiers through bold protection and advanced strategies.",
-    "image": "https://media.istockphoto.com/id/517188688/id/foto/lanskap-gunung.jpg?s=612x612&w=0&k=20&c=vJbqv4UEOXni-tW2RjeubmeZ6y9vsW4vVGKQy2-ZCRk=",
-    "number": "01/04"
+  {
+    "id": "aeternum",
+    "title": "Aeternum",
+    "categories": ["Blockchain", "AI", "WEB3"],
+    "thumbnailImage": "/Images/works/aeternum/thumbnail.png",
+    "video": "/Images/works/aeternum/aeternum.mp4",
+    "mainImage": "/Images/works/aeternum/mockup_aeternum.png",
+    "secondImage": "/Images/works/aeternum/check_sertif.png",
+    "description": "A blockchain-based platform for secure and transparent digital certificate verification and issuance. Addresses academic document fraud with immutable blockchain technology and AI for efficient management. Simplifies verification for institutions, businesses, and governments while driving digital transformation in education and professional sectors.",
+    "projectUrl": "https://aeternum.my.id",
+    "bestFeatures": [
+      "Secure",
+      "Transparent",
+      "Efficient",
+      "Innovative",
+      "Scalable"
+    ],
+    "projectImages": [
+      "/Images/works/aeternum/image1.png",
+      "/Images/works/aeternum/image2.png",
+      "/Images/works/aeternum/image3.png",
+      "/Images/works/aeternum/image4.png",
+      "/Images/works/aeternum/image5.png"
+    ],
+    "theme": {
+      "backgroundColor": "#121212",
+      "textColor": "#ffffff",
+      "accentColor": "#FF5722",
+      "categoryBgColor": "#333333",
+      "categoryTextColor": "#ffffff",
+      "buttonBgColor": "#05bd93",
+      "buttonTextColor": "#ffffff",
+      "overviewTextColor": "#9E9E9E"
+    }
   },
-  { 
-    "id": 2, 
-    "title": "GREENBOX DIGITAL", 
-    "description": "Blending digital simplicity with thoughtful design and distinctive character.",
-    "image": "https://cdn0-production-images-kly.akamaized.net/pkiKogaFaEHiRaJemJsMacfTF4Y=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4087394/original/016463100_1657693473-robert-lukeman-_RBcxo9AU-U-unsplash.jpg",
-    "number": "02/04"
-  },
-  { 
-    "id": 3, 
-    "title": "NEXUS PLATFORM", 
-    "description": "Connecting digital ecosystems through innovative interfaces and seamless experiences.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Pemandangan_Alam.jpg",
-    "number": "03/04"
-  },
-  { 
-    "id": 4, 
-    "title": "AURORA INTERFACE", 
-    "description": "Illuminating user experiences with vibrant design and intuitive navigation systems.",
-    "image": "https://i2.wp.com/blog.tripcetera.com/id/wp-content/uploads/2020/10/Danau-Toba-edited.jpg",
-    "number": "04/04"
+  {
+    "id": "spherevent",
+    "title": "Spherevent",
+    "categories": ["AI", "Oauth", "Midtrans"],
+    "thumbnailImage": "/Images/works/spherevent/thumbnail.png",
+    "mainImage": "/Images/works/spherevent/spherevent.png",
+    "secondImage": "/Images/works/spherevent/event_page.png",
+    "description": "A comprehensive event management platform with features for scheduling, registration, and attendee tracking. Equipped with AI to automatically generate event descriptions, saving time, enhancing engagement, and ensuring relevant and compelling information for the audience.",
+    "projectUrl": "https://spherevent.my.id",
+    "bestFeatures": [
+      "AI Descriptions",
+      "Smart Scheduling",
+      "Easy Registration",
+      "Payment Gateway",
+      "Tracking Visitor"
+    ],
+    "projectImages": [
+      "/Images/works/spherevent/image1.png",
+      "/Images/works/aeternum/image2.png",
+      "/Images/works/aeternum/image3.png",
+      "/Images/works/aeternum/image4.png",
+      "/Images/works/aeternum/image5.png"
+    ],
+    "theme": {
+      "backgroundColor": "#f5f5f5",
+      "useGradient": true,
+      "gradientFrom": "oklch(0.828 0.111 230.318)",
+      "gradientTo": "oklch(0.827 0.119 306.383)",
+      "textColor": "#ffffff",
+      "accentColor": "#3498db",
+      "categoryBgColor": "oklch(0.707 0.165 254.624)",
+      "categoryTextColor": "#ffffff",
+      "buttonBgColor": "#FF5722",
+      "buttonTextColor": "#ffffff",
+      "overviewTextColor": "oklch(0.977 0.013 236.62)"
+    }
   }
 ]

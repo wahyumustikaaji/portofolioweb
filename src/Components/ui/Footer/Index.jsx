@@ -2,16 +2,29 @@ import { motion } from 'framer-motion';
 import TextPressure from '../../TextAnimations/TextPressure/TextPressure';
 import { useLocation, Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({ theme = null, nextProject = null }) => {
   const location = useLocation();
+  
+  console.log("Footer received nextProject:", nextProject);
   
   // Determine button text and link based on current path
   const getButtonConfig = () => {
     const path = location.pathname;
+    console.log("Current path:", path);
     
+    // If we have nextProject data and we're on a project page, use that
+    if (nextProject && path.includes('/work/')) {
+      console.log("Using next project navigation:", nextProject.title);
+      return { 
+        text: nextProject.title.toUpperCase(), 
+        link: `/work/${nextProject.id}` 
+      };
+    }
+    
+    // Default navigation logic
     if (path === '/' || path.includes('/homes')) {
       return { text: 'WORKS', link: '/works' };
-    } else if (path.includes('/works')) {
+    } else if (path.includes('/works') && !path.includes('/works/')) {
       return { text: 'ABOUT', link: '/about' };
     } else if (path.includes('/about')) {
       return { text: 'HOME', link: '/' };
@@ -41,7 +54,11 @@ const Footer = () => {
           className=""
         >
           <motion.h1 
-            className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-none tracking-tighter font-semibold relative after:bg-black after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500"
+          style={{ 
+              color: theme?.textColor || 'inherit',
+              '--underline-color': theme?.textColor || '#000000'
+            }}
+            className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-none tracking-tighter font-semibold relative after:bg-[var(--underline-color)] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -64,7 +81,7 @@ const Footer = () => {
       </div>
       
       {/* Footer bottom section */}
-      <div className="w-full px-4 sm:px-6 lg:px-20 py-6 border-t border-gray-200 bg-black">
+      <div className="w-full px-4 sm:px-6 lg:px-20 py-6 bg-black">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm font-medium text-white order-1">
             WAHYU MASS.AJI — 2025

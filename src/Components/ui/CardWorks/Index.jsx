@@ -47,7 +47,7 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
                 <Link to={`/work/${project.id}`} className="block">
                   <div className="overflow-hidden mb-4">
                     <img 
-                      src={project.image} 
+                      src={project.thumbnailImage} 
                       alt={project.title} 
                       className="w-full h-[400px] lg:h-[650px] object-cover transition-transform duration-700 group-hover:scale-105 rounded-lg"
                     />
@@ -55,9 +55,6 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
                   <div className="flex justify-between items-center mb-2">
                     <h3 className={`text-xl font-semibold ${textColor}`}>{project.title}</h3>
                   </div>
-                  <p className={`text-sm ${subtextColor}`}>
-                    {project.description}
-                  </p>
                 </Link>
               </motion.div>
             );

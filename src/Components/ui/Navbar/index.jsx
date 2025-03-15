@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ inDarkMode = false }) => {
+const Navbar = ({ inDarkMode = false, theme = null }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -132,7 +132,9 @@ const Navbar = ({ inDarkMode = false }) => {
             <div className="flex items-center">
               <Link to="/" className="text-2xl font-medium">
                 <motion.span 
-                  className={"text-black"}
+                  style={{ 
+                    color: theme?.textColor || (inDarkMode ? 'white' : 'black')
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -145,8 +147,10 @@ const Navbar = ({ inDarkMode = false }) => {
             <div className="">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-black
-                 focus:outline-none`}
+                style={{ 
+                  color: theme?.textColor || (inDarkMode ? 'white' : 'rgb(55, 65, 81)')
+                }}
+                className={`inline-flex items-center justify-center p-2 rounded-md hover:opacity-80 focus:outline-none`}
                 whileTap={{ scale: 0.9 }}
               >
                 <span className="sr-only">Open main menu</span>
