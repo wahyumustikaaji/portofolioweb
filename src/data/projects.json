@@ -3,10 +3,10 @@
     "id": "aeternum",
     "title": "Aeternum",
     "categories": ["Blockchain", "AI", "WEB3"],
-    "thumbnailImage": "/Images/works/aeternum/thumbnail.png",
+    "thumbnailImage": "/Images/works/aeternum/thumbnail.webp",
     "video": "/Images/works/aeternum/aeternum.mp4",
-    "mainImage": "/Images/works/aeternum/mockup_aeternum.png",
-    "secondImage": "/Images/works/aeternum/check_sertif.png",
+    "mainImage": "/Images/works/aeternum/mockup_aeternum.webp",
+    "secondImage": "/Images/works/aeternum/check_sertif.webp",
     "description": "A blockchain-based platform for secure and transparent digital certificate verification and issuance. Addresses academic document fraud with immutable blockchain technology and AI for efficient management. Simplifies verification for institutions, businesses, and governments while driving digital transformation in education and professional sectors.",
     "projectUrl": "https://aeternum.my.id",
     "bestFeatures": [
@@ -17,11 +17,10 @@
       "Scalable"
     ],
     "projectImages": [
-      "/Images/works/aeternum/image1.png",
-      "/Images/works/aeternum/image2.png",
-      "/Images/works/aeternum/image3.png",
-      "/Images/works/aeternum/image4.png",
-      "/Images/works/aeternum/image5.png"
+      "/Images/works/aeternum/image1.webp",
+      "/Images/works/aeternum/image2.webp",
+      "/Images/works/aeternum/image3.webp",
+      "/Images/works/aeternum/image4.webp"
     ],
     "theme": {
       "backgroundColor": "#121212",
@@ -34,13 +33,15 @@
       "overviewTextColor": "#9E9E9E"
     }
   },
+  
   {
     "id": "spherevent",
     "title": "Spherevent",
     "categories": ["AI", "Oauth", "Midtrans"],
-    "thumbnailImage": "/Images/works/spherevent/thumbnail.png",
-    "mainImage": "/Images/works/spherevent/spherevent.png",
-    "secondImage": "/Images/works/spherevent/event_page.png",
+    "thumbnailImage": "/Images/works/spherevent/thumbnail.webp",
+    "video": "/Images/works/spherevent/spherevent.mp4",
+    "mainImage": "/Images/works/spherevent/spherevent.webp",
+    "secondImage": "/Images/works/spherevent/event_page.webp",
     "description": "A comprehensive event management platform with features for scheduling, registration, and attendee tracking. Equipped with AI to automatically generate event descriptions, saving time, enhancing engagement, and ensuring relevant and compelling information for the audience.",
     "projectUrl": "https://spherevent.my.id",
     "bestFeatures": [
@@ -51,11 +52,11 @@
       "Tracking Visitor"
     ],
     "projectImages": [
-      "/Images/works/spherevent/image1.png",
-      "/Images/works/aeternum/image2.png",
-      "/Images/works/aeternum/image3.png",
-      "/Images/works/aeternum/image4.png",
-      "/Images/works/aeternum/image5.png"
+      "/Images/works/spherevent/image1.webp",
+      "/Images/works/spherevent/image2.webp",
+      "/Images/works/spherevent/image3.webp",
+      "/Images/works/spherevent/image4.webp",
+      "/Images/works/spherevent/image5.webp"
     ],
     "theme": {
       "backgroundColor": "#f5f5f5",
@@ -69,6 +70,111 @@
       "buttonBgColor": "#FF5722",
       "buttonTextColor": "#ffffff",
       "overviewTextColor": "oklch(0.977 0.013 236.62)"
+    }
+  },
+  
+  {
+    "id": "projecthub",
+    "title": "Projecthub",
+    "categories": ["Freelance", "Project", "Midtrans"],
+    "thumbnailImage": "/Images/works/projecthub/thumbnail.webp",
+    "mainImage": "/Images/works/projecthub/projecthub.webp",
+    "secondImage": "/Images/works/projecthub/rekrut.webp",
+    "description": "A freelance platform that connects freelancers with project owners to simplify job searching and talent recruitment. This platform addresses the challenge of finding suitable projects for freelancers while helping project owners quickly find the right talent. With category, price, and job type filters, users can easily find projects or freelancers they need, making the matching process more efficient and professional.",
+    "projectUrl": "https://projecthub.id",
+    "bestFeatures": [
+        "Find freelance",
+        "Join affiliate",
+        "Secure transactions",
+        "Hire freelancers",
+        "Manage projects"
+    ],
+    "projectImages": [
+      "/Images/works/projecthub/image1.webp",
+      "/Images/works/projecthub/image2.webp",
+      "/Images/works/projecthub/image3.webp",
+      "/Images/works/projecthub/image4.webp",
+      "/Images/works/projecthub/image5.webp"
+    ],
+    "theme": {
+      "backgroundColor": "#020179",
+      "textColor": "#ffffff",
+      "accentColor": "#3498db",
+      "categoryBgColor": "#ffffff",
+      "categoryTextColor": "#020179",
+      "buttonBgColor": "#DFE3EC",
+      "buttonTextColor": "#020179",
+      "overviewTextColor": "oklch(0.977 0.013 236.62)"
+    }
+  },
+  
+  {
+    "id": "solusi-ternak",
+    "title": "Solusi Ternak",
+    "categories": ["Livestock", "Feed", "Market Access"],
+    "thumbnailImage": "/Images/works/solusi-ternak/thumbnail.png",
+    "mainImage": "/Images/works/solusi-ternak/solusi-ternak.png",
+    "secondImage": "/Images/works/solusi-ternak/feature.png",
+    "description": "A digital platform that helps farmers manage their livestock business more efficiently. With advanced features, farmers can monitor animal health, manage feed, and increase productivity through accurate data analysis.",
+    "projectUrl": "https://solusi-ternak.vercel.app/index.html",
+    "bestFeatures": [
+        "Health Monitoring",
+        "Financial Tracking",
+        "AI Analytics",
+        "Feeding Reminders",
+        "Digital Marketplace"
+    ],
+    "projectImages": [
+      "/Images/works/spherevent/image1.png",
+      "/Images/works/aeternum/image2.png",
+      "/Images/works/aeternum/image3.png",
+      "/Images/works/aeternum/image4.png",
+      "/Images/works/aeternum/image5.png"
+    ],
+    "theme": {
+      "backgroundColor": "#d0c5b2",
+      "textColor": "#ffffff",
+      "accentColor": "#3498db",
+      "categoryBgColor": "#ffffff",
+      "categoryTextColor": "#5d6745",
+      "buttonBgColor": "#5d6745",
+      "buttonTextColor": "#ffffff",
+      "overviewTextColor": "oklch(0.977 0.013 236.62)"
+    }
+  },
+  
+  {
+    "id": "examai",
+    "title": "Exam AI",
+    "categories": ["AI", "Exam", "Automated"],
+    "thumbnailImage": "/Images/works/examai/thumbnail.png",
+    "mainImage": "/Images/works/examai/examai.png",
+    "secondImage": "/Images/works/examai/about.png",
+    "description": "ExamAI uses AI to automatically generate exam questions and analyze results. With NLP and Machine Learning, the platform helps educators create quality questions and provides comprehensive reports for more efficient evaluation.",
+    "projectUrl": "https://examai.web.id",
+    "bestFeatures": [
+        "AI-Generated Questions",
+        "Smart Exam Analysis",
+        "Automated Scoring",
+        "Customizable Question Bank",
+        "Comprehensive Reports"
+    ],
+    "projectImages": [
+      "/Images/works/spherevent/image1.png",
+      "/Images/works/aeternum/image2.png",
+      "/Images/works/aeternum/image3.png",
+      "/Images/works/aeternum/image4.png",
+      "/Images/works/aeternum/image5.png"
+    ],
+    "theme": {
+      "backgroundColor": "#FBFCF8",
+      "textColor": "#3146fd",
+      "accentColor": "#3498db",
+      "categoryBgColor": "#000000",
+      "categoryTextColor": "#FBFCF8",
+      "buttonBgColor": "#000000",
+      "buttonTextColor": "#ffffff",
+      "overviewTextColor": "#3146fd"
     }
   }
 ]

@@ -24,7 +24,7 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
           </div>
         )}
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-6">
           {projects.map((project, index) => {
             const [projectRef, projectInView] = useInView({
               threshold: 0.2,

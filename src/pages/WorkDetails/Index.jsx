@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from '../../Components/ui/Navbar';
 import Magnet from '../../Components/Animations/Magnet/Magnet';
@@ -10,6 +10,13 @@ import projectsData from '../../data/projects.json';
 export default function WorkDetails() {
   const { id } = useParams();
   const [project, setProject] = useState(null);
+  
+  // Refs for parallax sections
+  const mainImageRef = useRef(null);
+  const secondImageRef = useRef(null);
+  
+  // Get scroll progress for parallax effect
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     // Find the project with the matching ID
@@ -92,30 +99,55 @@ export default function WorkDetails() {
   console.log("Current project:", project.id, "Next project:", nextProject?.id);
 
   return (
-    <div className="" style={{ 
-      background: project.theme?.useGradient 
-        ? `linear-gradient(90deg, ${project.theme.gradientFrom} 0%, ${project.theme.gradientTo} 100%)` 
-        : project.theme?.backgroundColor || '#ffffff',
-      color: project.theme?.textColor || '#000000'
-    }}>
-      <Navbar theme={project.theme} />
+    <div 
+      key={project.id} 
+      className="" 
+      style={{ 
+        background: project.theme?.useGradient 
+          ? `linear-gradient(90deg, ${project.theme.gradientFrom} 0%, ${project.theme.gradientTo} 100%)` 
+          : project.theme?.backgroundColor || '#ffffff',
+        color: project.theme?.textColor || '#000000'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Navbar theme={project.theme} />
+      </motion.div>
       
       <div className="px-4 lg:px-20 pt-52 relative z-10 flex lg:items-center justify-between lg:flex-row flex-col gap-5">
-        <h1 className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[7rem] leading-none tracking-tighter font-semibold">{project.title}</h1>
-        <div className="flex items-center lg:justify-end gap-2 flex-wrap max-w-sm">
+        <motion.h1 
+          className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[7rem] leading-none tracking-tighter font-semibold"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          {project.title}
+        </motion.h1>
+        <motion.div 
+          className="flex items-center lg:justify-end gap-2 flex-wrap max-w-sm"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           {project.categories.map((category, index) => (
-            <p 
-            key={index} 
-            className="px-5 py-2 rounded-full text-sm flex justify-center items-center"
-            style={{
-              backgroundColor: project.theme?.categoryBgColor || '#000000',
-              color: project.theme?.categoryTextColor || '#ffffff'
-            }}
-          >
+            <motion.p 
+              key={index} 
+              className="px-5 py-2 rounded-full text-sm flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.5 + (index * 0.1) }}
+              style={{
+                backgroundColor: project.theme?.categoryBgColor || '#000000',
+                color: project.theme?.categoryTextColor || '#ffffff'
+              }}
+            >
               {category}
-            </p>
+            </motion.p>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex items-center justify-between px-4 lg:px-20 mt-14">
@@ -145,15 +177,15 @@ export default function WorkDetails() {
         </div>
       </div>
       
-      <div className="mt-14">
-        <img className="h-screen w-full object-cover project-image" src={project.mainImage} alt={project.title} />
+      {/* Main Image with Parallax Effect - h-screen */}
+      <div className="mt-14 h-screen w-full overflow-hidden relative" ref={mainImageRef}>
+        <ParallaxImage imageUrl={project.mainImage} altText={project.title} />
       </div>
-
 
       <div className="px-4 lg:px-20 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
-          <h3 
+            <h3 
               className="text-lg font-medium"
               style={{
                 color: project.theme?.overviewTextColor || '#6E6E73'
@@ -167,7 +199,7 @@ export default function WorkDetails() {
               {project.description}
             </p>
             <Magnet padding={100} disabled={false} magnetStrength={4}>
-            <a 
+              <a 
                 href={project.projectUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -196,7 +228,11 @@ export default function WorkDetails() {
             preload="auto"
           ></video>
         ) : null}
-        <img className="h-screen w-full object-cover project-image" src={project.secondImage} alt="image project" />
+        
+        {/* Second Image with Parallax Effect - h-screen */}
+        <div className="h-screen w-full overflow-hidden relative" ref={secondImageRef}>
+          <ParallaxImage imageUrl={project.secondImage} altText="image project" />
+        </div>
       </div>
 
       <div className="min-h-screen flex flex-col items-center justify-center py-20 relative">
@@ -237,38 +273,17 @@ export default function WorkDetails() {
         </div>
         
         <PixelTransition
-          contents={[
-            // First image (initially visible)
-            <img
-              src={project.projectImages[0]}
-              alt="Project image"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />,
-            // Second image
-            <img
-              src={project.projectImages[1]}
-              alt="Project image" 
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />,
-            // Third image
-            <img
-              src={project.projectImages[2]}
-              alt="Project image"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />,
-            // Fourth image
-            <img
-              src={project.projectImages[3]}
-              alt="Project image"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />,
-            // Fifth image
-            <img
-              src={project.projectImages[4]}
-              alt="Project image"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />,
-          ]}
+          contents={
+            // Hanya menampilkan gambar sesuai dengan jumlah yang tersedia
+            project.projectImages.map((imageUrl, index) => (
+              <img
+                key={index}
+                src={imageUrl}
+                alt={`Project image ${index + 1}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            ))
+          }
           gridSize={12}
           pixelColor='#ffffff'
           animationStepDuration={0.4}
@@ -277,6 +292,41 @@ export default function WorkDetails() {
       </div>
 
       <Footer theme={project.theme} nextProject={nextProject} />
+    </div>
+  );
+}
+
+function ParallaxImage({ imageUrl, altText }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+  
+  return (
+    <div ref={ref} className="h-screen w-full overflow-hidden">
+      <motion.div
+        className="h-screen w-full"
+        style={{ 
+          y, 
+          scale, 
+          height: "92%",  
+          position: "absolute",
+          top: "-10%",   
+        }}
+      >
+        <img 
+          src={imageUrl} 
+          alt={altText} 
+          className="w-full h-full object-cover project-image"
+          style={{ 
+            objectPosition: "center" 
+          }}
+        />
+      </motion.div>
     </div>
   );
 }

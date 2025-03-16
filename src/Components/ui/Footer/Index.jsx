@@ -54,11 +54,15 @@ const Footer = ({ theme = null, nextProject = null }) => {
           className=""
         >
           <motion.h1 
-          style={{ 
+            style={{ 
               color: theme?.textColor || 'inherit',
               '--underline-color': theme?.textColor || '#000000'
             }}
-            className="font-merriweather text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-none tracking-tighter font-semibold relative after:bg-[var(--underline-color)] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500"
+            className={`font-merriweather leading-none tracking-tighter font-semibold relative after:bg-[var(--underline-color)] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500 ${
+              location.pathname.includes('/work/') 
+                ? 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8rem]' // Ukuran lebih kecil untuk halaman work details
+                : 'text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem]' // Ukuran default
+            }`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
