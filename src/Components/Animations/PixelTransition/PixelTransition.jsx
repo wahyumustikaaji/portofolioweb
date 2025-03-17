@@ -132,7 +132,8 @@ function PixelTransition({
         ${className}
         bg-[#222]
         w-full
-        h-screen
+        h-[40vh] 
+        lg:h-screen
         max-w-full
         relative
         overflow-hidden

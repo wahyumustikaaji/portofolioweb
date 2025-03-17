@@ -196,7 +196,7 @@ export default function WorkDetails() {
       </div>
       
       {/* Main Image with Parallax Effect - h-screen */}
-      <div className="mt-14 h-screen w-full overflow-hidden relative" ref={mainImageRef}>
+      <div className="mt-14 h-[40vh] lg:h-screen w-full overflow-hidden relative" ref={mainImageRef}>
         <ParallaxImage imageUrl={project.mainImage} altText={project.title} />
       </div>
 
@@ -242,13 +242,13 @@ export default function WorkDetails() {
             muted
             loop
             playsInline
-            className="w-screen object-cover h-screen pointer-events-none"
+            className="w-screen object-cover h-[40vh] lg:h-screen pointer-events-none"
             preload="auto"
           ></video>
         ) : null}
         
         {/* Second Image with Parallax Effect - h-screen */}
-        <div className="h-screen w-full overflow-hidden relative" ref={secondImageRef}>
+        <div className="h-[40vh] lg:h-screen w-full overflow-hidden relative" ref={secondImageRef}>
           <ParallaxImage imageUrl={project.secondImage} altText="image project" />
         </div>
       </div>
@@ -282,7 +282,7 @@ export default function WorkDetails() {
         </div>
       </div>
 
-      <div className="h-screen w-full relative group cursor-pointer" 
+      <div className="h-[40vh] lg:h-screen w-full relative group cursor-pointer" 
         style={{ 
           cursor: 'none',
         }}>
