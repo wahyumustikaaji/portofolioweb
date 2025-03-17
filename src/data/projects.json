@@ -93,8 +93,7 @@
       "/Images/works/projecthub/image1.webp",
       "/Images/works/projecthub/image2.webp",
       "/Images/works/projecthub/image3.webp",
-      "/Images/works/projecthub/image4.webp",
-      "/Images/works/projecthub/image5.webp"
+      "/Images/works/projecthub/image4.webp"
     ],
     "theme": {
       "backgroundColor": "#020179",
@@ -125,11 +124,9 @@
         "Digital Marketplace"
     ],
     "projectImages": [
-      "/Images/works/spherevent/image1.webp",
-      "/Images/works/aeternum/image2.webp",
-      "/Images/works/aeternum/image3.webp",
-      "/Images/works/aeternum/image4.webp",
-      "/Images/works/aeternum/image5.webp"
+      "/Images/works/solusi-ternak/image1.webp",
+      "/Images/works/solusi-ternak/image2.webp",
+      "/Images/works/solusi-ternak/image3.webp"
     ],
     "theme": {
       "backgroundColor": "#d0c5b2",
@@ -160,11 +157,8 @@
         "Comprehensive Reports"
     ],
     "projectImages": [
-      "/Images/works/spherevent/image1.png",
-      "/Images/works/aeternum/image2.png",
-      "/Images/works/aeternum/image3.png",
-      "/Images/works/aeternum/image4.png",
-      "/Images/works/aeternum/image5.png"
+      "/Images/works/examai/image1.webp",
+      "/Images/works/examai/image2.webp"
     ],
     "theme": {
       "backgroundColor": "#FBFCF8",

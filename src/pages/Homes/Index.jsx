@@ -143,7 +143,7 @@ export default function Home() {
           >
             <span className="text-black font-medium">Wahyu is a Indonesian</span>
             <span className="inline-flex items-center mx-2 lg:mt-2 mt-0">
-              <img className='size-12 sm:size-14 md:size-16 rounded-full object-cover lg:block hidden' src="https://cdn.antaranews.com/cache/1200x800/2023/06/18/20230618_080945.jpg" alt="" />
+              <img className='size-12 sm:size-14 md:size-16 rounded-full object-cover lg:block hidden' src="/Images/wahyu.webp" alt="" />
             </span>
           </motion.p>
           
@@ -167,7 +167,7 @@ export default function Home() {
             variants={fadeUpVariants}
           >
             Who builds <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
-              <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-28 sm:w-32 md:w-36 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
+              <img src="/Images/laptop.jpeg" alt="Project thumbnail" className="w-28 sm:w-32 md:w-36 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span> websites
           </motion.p>
           
@@ -179,7 +179,7 @@ export default function Home() {
             variants={fadeUpVariants}
           >
             that drive business <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
-              <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
+              <img src="/Images/bussines.jpeg" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span>
           </motion.p>
           
@@ -191,7 +191,7 @@ export default function Home() {
             variants={fadeUpVariants}
           >
             <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
-              <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
+              <img src="/Images/winner.jpeg" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span>
             and achieve results
           </motion.p>
