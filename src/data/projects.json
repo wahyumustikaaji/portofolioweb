@@ -112,9 +112,9 @@
     "id": "solusi-ternak",
     "title": "Solusi Ternak",
     "categories": ["Livestock", "Feed", "Market Access"],
-    "thumbnailImage": "/Images/works/solusi-ternak/thumbnail.png",
-    "mainImage": "/Images/works/solusi-ternak/solusi-ternak.png",
-    "secondImage": "/Images/works/solusi-ternak/feature.png",
+    "thumbnailImage": "/Images/works/solusi-ternak/thumbnail.webp",
+    "mainImage": "/Images/works/solusi-ternak/solusi-ternak.webp",
+    "secondImage": "/Images/works/solusi-ternak/feature.webp",
     "description": "A digital platform that helps farmers manage their livestock business more efficiently. With advanced features, farmers can monitor animal health, manage feed, and increase productivity through accurate data analysis.",
     "projectUrl": "https://solusi-ternak.vercel.app/index.html",
     "bestFeatures": [
@@ -125,11 +125,11 @@
         "Digital Marketplace"
     ],
     "projectImages": [
-      "/Images/works/spherevent/image1.png",
-      "/Images/works/aeternum/image2.png",
-      "/Images/works/aeternum/image3.png",
-      "/Images/works/aeternum/image4.png",
-      "/Images/works/aeternum/image5.png"
+      "/Images/works/spherevent/image1.webp",
+      "/Images/works/aeternum/image2.webp",
+      "/Images/works/aeternum/image3.webp",
+      "/Images/works/aeternum/image4.webp",
+      "/Images/works/aeternum/image5.webp"
     ],
     "theme": {
       "backgroundColor": "#d0c5b2",
@@ -147,9 +147,9 @@
     "id": "examai",
     "title": "Exam AI",
     "categories": ["AI", "Exam", "Automated"],
-    "thumbnailImage": "/Images/works/examai/thumbnail.png",
-    "mainImage": "/Images/works/examai/examai.png",
-    "secondImage": "/Images/works/examai/about.png",
+    "thumbnailImage": "/Images/works/examai/thumbnail.webp",
+    "mainImage": "/Images/works/examai/examai.webp",
+    "secondImage": "/Images/works/examai/about.webp",
     "description": "ExamAI uses AI to automatically generate exam questions and analyze results. With NLP and Machine Learning, the platform helps educators create quality questions and provides comprehensive reports for more efficient evaluation.",
     "projectUrl": "https://examai.web.id",
     "bestFeatures": [

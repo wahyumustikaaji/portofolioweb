@@ -1,6 +1,7 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Navbar from '../../Components/ui/Navbar';
 import Magnet from '../../Components/Animations/Magnet/Magnet';
 import PixelTransition from '../../Components/Animations/PixelTransition/PixelTransition';
@@ -10,6 +11,10 @@ import projectsData from '../../data/projects.json';
 export default function WorkDetails() {
   const { id } = useParams();
   const [project, setProject] = useState(null);
+  const location = useLocation();
+  
+  // Get the current absolute URL
+  const currentUrl = window.location.origin + location.pathname;
   
   // Refs for parallax sections
   const mainImageRef = useRef(null);
@@ -98,6 +103,11 @@ export default function WorkDetails() {
   const nextProject = findNextProject();
   console.log("Current project:", project.id, "Next project:", nextProject?.id);
 
+  // Get the absolute URL for the thumbnail image
+  const thumbnailImageUrl = project.thumbnailImage 
+    ? window.location.origin + project.thumbnailImage
+    : "";
+
   return (
     <div 
       key={project.id} 
@@ -109,6 +119,14 @@ export default function WorkDetails() {
         color: project.theme?.textColor || '#000000'
       }}
     >
+      <Helmet>
+        <title>{project.title} - MASS.AJI</title>
+        <meta property="og:title" content={`${project.title} - MASS.AJI`} />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:image" content={thumbnailImageUrl} />
+        <meta property="og:description" content={project.description} />
+      </Helmet>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -274,7 +292,6 @@ export default function WorkDetails() {
         
         <PixelTransition
           contents={
-            // Hanya menampilkan gambar sesuai dengan jumlah yang tersedia
             project.projectImages.map((imageUrl, index) => (
               <img
                 key={index}

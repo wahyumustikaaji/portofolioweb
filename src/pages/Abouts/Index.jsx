@@ -141,46 +141,46 @@ export default function About() {
           {/* Right side - Scrollable timeline */}
           <div className="lg:w-1/2 mt-12 lg:mt-[100vh]">
             <motion.h2 
-              className="text-5xl font-bold mb-8"
-              initial={{ opacity: 0, x: 50 }}
+              className="text-4xl sm:text-5xl font-bold mb-6 sm:mb-8"
+              initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, x: window.innerWidth >= 768 ? 50 : 0 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               MY JOURNEY
             </motion.h2>
-            <div className="space-y-16">
+            <div className="space-y-12 sm:space-y-16">
               {/* Map through journey items */}
               {journeyData.journeyItems.map((item, index) => (
                 <motion.div 
                   key={index}
-                  className="flex"
-                  initial={{ opacity: 0, y: 50 }}
+                  className="flex flex-col sm:flex-row"
+                  initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, y: window.innerWidth >= 768 ? 50 : 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: 0.2 * index, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, delay: window.innerWidth >= 768 ? 0.2 * index : 0, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="w-32 flex-shrink-0">
-                    <p className="text-gray-500">{item.period}</p>
+                  <div className="w-full sm:w-32 flex-shrink-0 mb-2 sm:mb-0">
+                    <p className="text-gray-500 font-medium">{item.period}</p>
                   </div>
                   <div className="relative pl-6 border-l-2 border-gray-300">
                     <motion.div 
                       className="absolute left-[-4.5px] top-0 w-2 h-2 rounded-full bg-black"
-                      initial={{ scale: 0 }}
+                      initial={{ scale: window.innerWidth >= 768 ? 0 : 1 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: false }}
-                      transition={{ duration: 0.4, delay: 0.2 + (0.2 * index) }}
+                      transition={{ duration: 0.4, delay: window.innerWidth >= 768 ? 0.2 + (0.2 * index) : 0 }}
                     />
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-500 mb-3">{item.company}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-500 mb-3">{item.company}</p>
                     {item.responsibilities ? (
-                      <ul className="list-disc pl-5 space-y-1">
+                      <ul className="list-disc pl-4 sm:pl-5 space-y-1 text-sm sm:text-base">
                         {item.responsibilities.map((responsibility, i) => (
                           <li key={i}>{responsibility}</li>
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-gray-700">{item.description}</p>
+                      <p className="text-sm sm:text-base text-gray-700">{item.description}</p>
                     )}
                   </div>
                 </motion.div>
@@ -189,15 +189,15 @@ export default function About() {
             
             {/* Experience section */}
             <motion.div 
-              className="mt-24"
-              initial={{ opacity: 0, y: 50 }}
+              className="mt-16 sm:mt-24"
+              initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, y: window.innerWidth >= 768 ? 50 : 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: window.innerWidth >= 768 ? 0.2 : 0, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.h2 
-                className="text-5xl font-bold mb-12"
-                initial={{ opacity: 0, x: 50 }}
+                className="text-4xl sm:text-5xl font-bold mb-8 sm:mb-12"
+                initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, x: window.innerWidth >= 768 ? 50 : 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -206,18 +206,19 @@ export default function About() {
               </motion.h2>
               
               {/* Map through experience items */}
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {experienceData.experiences.map((exp, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, x: window.innerWidth >= 768 ? -50 : 0 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.6, delay: 0.3 + (0.1 * index), ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ x: 10 }}
+                    transition={{ duration: 0.6, delay: window.innerWidth >= 768 ? 0.3 + (0.1 * index) : 0, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ x: window.innerWidth >= 768 ? 10 : 0 }}
                   >
-                    <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
-                    <p className="text-gray-700 mb-4">{exp.description}</p>
+                    {/* Content remains the same */}
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{exp.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-700 mb-4">{exp.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -225,15 +226,15 @@ export default function About() {
             
             {/* Clients section */}
             <motion.div 
-              className="mt-24"
-              initial={{ opacity: 0, y: 50 }}
+              className="mt-16 sm:mt-24"
+              initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, y: window.innerWidth >= 768 ? 50 : 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: window.innerWidth >= 768 ? 0.2 : 0, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.h2 
-                className="text-5xl font-bold mb-12"
-                initial={{ opacity: 0, x: 50 }}
+                className="text-4xl sm:text-5xl font-bold mb-8 sm:mb-12"
+                initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, x: window.innerWidth >= 768 ? 50 : 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -241,28 +242,28 @@ export default function About() {
                 CLIENTS
               </motion.h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 sm:gap-y-8 gap-x-4">
                 {/* Map through client letters */}
                 {Object.entries(clientsData.clientsByLetter).map(([letter, clients], index) => (
                   <div key={letter}>
                     <motion.p 
-                      className="text-gray-300 italic font-serif"
-                      initial={{ opacity: 0, y: 10 }}
+                      className="text-gray-300 italic font-serif text-lg sm:text-xl"
+                      initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, y: window.innerWidth >= 768 ? 10 : 0 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.1 * index }}
+                      transition={{ duration: 0.4, delay: window.innerWidth >= 768 ? 0.1 * index : 0 }}
                     >
                       {letter}
                     </motion.p>
                     <motion.div 
-                      className="space-y-2"
-                      initial={{ opacity: 0, y: 10 }}
+                      className="space-y-1 sm:space-y-2"
+                      initial={{ opacity: window.innerWidth >= 768 ? 0 : 1, y: window.innerWidth >= 768 ? 10 : 0 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false }}
-                      transition={{ duration: 0.4, delay: 0.2 + (0.1 * index) }}
+                      transition={{ duration: 0.4, delay: window.innerWidth >= 768 ? 0.2 + (0.1 * index) : 0 }}
                     >
                       {clients.map((client, i) => (
-                        <p key={i}>{client}</p>
+                        <p key={i} className="text-sm sm:text-base">{client}</p>
                       ))}
                     </motion.div>
                   </div>

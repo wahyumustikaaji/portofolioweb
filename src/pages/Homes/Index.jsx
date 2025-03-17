@@ -263,7 +263,12 @@ export default function Home() {
 
       <div className='text-center relative z-10 py-20'>
         <p className='font-serif text-3xl'>Ready to work together?</p>
-        <a href="mailto:wahyuma123@gmail.com" className='inline-block font-merriweather font-bold text-5xl mt-3 hover:text-gray-600 transition-colors duration-300'>wahyuma123@gmail.com</a>
+        <a 
+          href="mailto:wahyuma123@gmail.com" 
+          className='inline-block font-merriweather font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-3 hover:text-gray-600 transition-colors duration-300 break-all sm:break-normal px-4'
+        >
+          wahyuma123@gmail.com
+        </a>
       </div>
 
       <Footer />
