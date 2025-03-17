@@ -132,7 +132,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='min-h-screen flex justify-center items-center relative z-10'>
+      <div className='h-[70vh] lg:h-screen w-full flex justify-center items-center relative z-10'>
         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight px-4 md:px-8">
           <motion.p 
             ref={ref1}
@@ -142,8 +142,8 @@ export default function Home() {
             variants={fadeUpVariants}
           >
             <span className="text-black font-medium">Wahyu is a Indonesian</span>
-            <span className="inline-flex items-center mx-2 mt-2 sm:mt-0">
-              <img className='size-12 sm:size-14 md:size-16 rounded-full object-cover' src="https://cdn.antaranews.com/cache/1200x800/2023/06/18/20230618_080945.jpg" alt="" />
+            <span className="inline-flex items-center mx-2 lg:mt-2 mt-0">
+              <img className='size-12 sm:size-14 md:size-16 rounded-full object-cover lg:block hidden' src="https://cdn.antaranews.com/cache/1200x800/2023/06/18/20230618_080945.jpg" alt="" />
             </span>
           </motion.p>
           
@@ -166,7 +166,7 @@ export default function Home() {
             animate={inView3 ? "visible" : "hidden"}
             variants={fadeUpVariants}
           >
-            Who builds <span className="flex items-center justify-center my-2 sm:my-0">
+            Who builds <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
               <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-28 sm:w-32 md:w-36 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span> websites
           </motion.p>
@@ -178,7 +178,7 @@ export default function Home() {
             animate={inView4 ? "visible" : "hidden"}
             variants={fadeUpVariants}
           >
-            that drive business <span className="flex items-center justify-center my-2 sm:my-0">
+            that drive business <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
               <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span>
           </motion.p>
@@ -190,7 +190,7 @@ export default function Home() {
             animate={inView5 ? "visible" : "hidden"}
             variants={fadeUpVariants}
           >
-            <span className="flex items-center justify-center my-2 sm:my-0">
+            <span className="flex items-center justify-center my-2 sm:my-0 lg:block hidden">
               <img src="https://placehold.co/100x80" alt="Project thumbnail" className="w-24 sm:w-28 md:w-32 h-12 sm:h-14 md:h-16 object-cover rounded-sm" />
             </span>
             and achieve results
@@ -203,7 +203,7 @@ export default function Home() {
       </div>
 
       {/* Services Section */}
-      <div className="min-h-screen w-full px-4 relative z-10 flex flex-col justify-center items-center">
+      <div className="h-[70vh] lg:h-screen w-full px-4 relative z-10 flex flex-col justify-center items-center">
         <div className="w-full max-w-6xl mx-auto">
           <p className="mb-8 text-center">You need it? I do it</p>
           
@@ -261,7 +261,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='text-center relative z-10 py-20'>
+      <div className='text-center relative z-10 py-14 lg:py-20'>
         <p className='font-serif text-3xl'>Ready to work together?</p>
         <a 
           href="mailto:wahyuma123@gmail.com" 

@@ -253,7 +253,7 @@ export default function WorkDetails() {
         </div>
       </div>
 
-      <div className="min-h-screen flex flex-col items-center justify-center py-20 relative">
+      <div className="h-[70vh] lg:h-screen flex flex-col items-center justify-center py-20 relative">
         <div className="container mx-auto px-4 lg:px-20 text-center">
           <motion.p 
             className="text-lg text-gray-500 mb-8"
@@ -269,7 +269,7 @@ export default function WorkDetails() {
             {project.bestFeatures.map((feature, index) => (
               <motion.h2 
                 key={index}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
