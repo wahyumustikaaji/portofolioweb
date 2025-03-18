@@ -216,8 +216,12 @@ export default function About() {
                     transition={{ duration: 0.6, delay: window.innerWidth >= 768 ? 0.3 + (0.1 * index) : 0, ease: [0.22, 1, 0.36, 1] }}
                     whileHover={{ x: window.innerWidth >= 768 ? 10 : 0 }}
                   >
-                    {/* Content remains the same */}
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{exp.title}</h3>
+                    <div className="flex flex-col gap-2 mb-2">
+                      <h3 className="text-lg sm:text-xl font-semibold">{exp.title}</h3>
+                      {exp.year && (
+                        <span className="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-0">{exp.year}</span>
+                      )}
+                    </div>
                     <p className="text-sm sm:text-base text-gray-700 mb-4">{exp.description}</p>
                   </motion.div>
                 ))}

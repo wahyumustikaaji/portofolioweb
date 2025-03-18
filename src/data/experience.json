@@ -2,15 +2,13 @@
   "experiences": [
     {
       "title": "Frontend Developer",
-      "description": "Proficient in React, Next.js, and Tailwind CSS. Experienced in building responsive and interactive web applications."
+      "description": "Developed the user interface for Projecthub, a startup focused on project management, using Laravel for the backend along with DaisyUI and Tailwind CSS for UI design and styling.",
+      "year": "2023-2024"
     },
     {
-      "title": "UI/UX Designer",
-      "description": "Skilled in creating user-centered designs with Figma. Experienced in wireframing, prototyping, and user testing."
-    },
-    {
-      "title": "Web Developer",
-      "description": "Experienced in building websites using modern technologies. Familiar with version control systems and deployment processes."
+      "title": "Frontend Developer",
+      "description": "Designed and developed the employee management application interface for Maxpro, ensuring a responsive and user-friendly experience using Tailwind CSS and modern frontend development practices.",
+      "year": "2024"
     }
   ]
 }
