@@ -7,6 +7,9 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
   const subtextColor = inDarkMode ? "text-gray-300" : "text-gray-600";
   const borderColor = inDarkMode ? "border-gray-700" : "border-gray-300";
   
+  // Limit projects to 4 on home page
+  const displayedProjects = isWorksPage ? projects : projects.slice(0, 4);
+  
   return (
     <div className="min-h-screen pb-20 relative z-10">
       <div className="container mx-auto px-4 lg:px-20">
@@ -25,7 +28,7 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
         )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-6">
-          {projects.map((project, index) => {
+          {displayedProjects.map((project, index) => {
             const [projectRef, projectInView] = useInView({
               threshold: 0.2,
               triggerOnce: true
@@ -60,6 +63,17 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
             );
           })}
         </div>
+        
+        {!isWorksPage && projects.length > 4 && (
+          <div className="mt-10 lg:mt-14 text-center">
+            <Link 
+              to="/works" 
+              className={`inline-block px-8 py-3.5 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 ease-in-out`}
+            >
+              View All Projects
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
