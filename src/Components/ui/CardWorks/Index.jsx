@@ -65,14 +65,20 @@ const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
         </div>
         
         {!isWorksPage && projects.length > 4 && (
-          <div className="mt-10 lg:mt-14 text-center">
+          <motion.div 
+            className="mt-10 lg:mt-14 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Link 
               to="/works" 
               className={`inline-block px-8 py-3.5 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 ease-in-out`}
             >
               View All Projects
             </Link>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
