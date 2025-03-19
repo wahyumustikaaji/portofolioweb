@@ -24,13 +24,16 @@
     ],
     "theme": {
       "backgroundColor": "#121212",
+      "useGradient": true,
+      "gradientFrom": "#0f3443",
+      "gradientTo": "#34e89e",
       "textColor": "#ffffff",
       "accentColor": "#FF5722",
       "categoryBgColor": "#333333",
       "categoryTextColor": "#ffffff",
-      "buttonBgColor": "#05bd93",
+      "buttonBgColor": "#000000",
       "buttonTextColor": "#ffffff",
-      "overviewTextColor": "#9E9E9E"
+      "overviewTextColor": "#ffffff"
     }
   },
   
