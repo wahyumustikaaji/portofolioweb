@@ -100,15 +100,6 @@ const Footer = ({ theme = null, nextProject = null }) => {
             </a>
             <span className="text-xs md:text-sm text-white">/</span>
             <a 
-              href="https://twitter.com/wahyumustikaaji" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
-            >
-              TWITTER
-            </a>
-            <span className="text-xs md:text-sm text-white">/</span>
-            <a 
               href="https://instagram.com/wahyumustikaaji_" 
               target="_blank" 
               rel="noopener noreferrer"

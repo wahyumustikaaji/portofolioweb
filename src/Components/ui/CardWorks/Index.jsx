@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 
 const CardWorks = ({ projects, inDarkMode = false, isWorksPage = false }) => {
   const textColor = inDarkMode ? "text-white" : "text-black";
-  const subtextColor = inDarkMode ? "text-gray-300" : "text-gray-600";
-  const borderColor = inDarkMode ? "border-gray-700" : "border-gray-300";
-  
-  // Limit projects to 4 on home page
   const displayedProjects = isWorksPage ? projects : projects.slice(0, 4);
   
   return (
