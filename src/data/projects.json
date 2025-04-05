@@ -173,5 +173,39 @@
       "buttonTextColor": "#ffffff",
       "overviewTextColor": "#3146fd"
     }
+  },
+  
+  {
+    "id": "prepai",
+    "title": "Prep AI",
+    "categories": ["AI", "Interview", "Feedback"],
+    "thumbnailImage": "/Images/works/prepai/thumbnail.webp",
+    "mainImage": "/Images/works/prepai/prepai.webp",
+    "secondImage": "/Images/works/prepai/about.webp",
+    "description": "PrepAI is an AI-powered interview simulation platform that helps you practice job interviews interactively. You can practice answering interview questions using your voice, making the experience feel more realistic like a real interview.",
+    "projectUrl": "https://prepai.my.id",
+    "bestFeatures": [
+      "Voice Interview",
+      "AI Questions",
+      "Instant Feedback",
+      "Practice Anytime",
+      "Interview Scenarios"
+    ],
+    "projectImages": [
+      "/Images/works/prepai/image1.webp"
+    ],
+    "theme": {
+      "backgroundColor": "#242633",
+      "useGradient": true,
+      "gradientFrom": "#171532",
+      "gradientTo": "#08090D",
+      "textColor": "#ffffff",
+      "accentColor": "#3498db",
+      "categoryBgColor": "#49de50",
+      "categoryTextColor": "#FBFCF8",
+      "buttonBgColor": "#49de50",
+      "buttonTextColor": "#ffffff",
+      "overviewTextColor": "#49de50"
+    }
   }
 ]
