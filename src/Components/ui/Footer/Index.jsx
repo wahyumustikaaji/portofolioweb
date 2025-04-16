@@ -91,7 +91,7 @@ const Footer = ({ theme = null, nextProject = null }) => {
             WAHYU MASS.AJI — 2025
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 order-3 md:order-2 w-full md:w-auto lg:mt-4 lg:mb-0 mb-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 order-3 md:order-2 w-full md:w-auto lg:mb-0 mb-2">
             <a 
               href="mailto:wahyuma123@gmail.com" 
               className="text-xs md:text-sm uppercase text-white hover:text-[#6E6E73] transition-colors"
